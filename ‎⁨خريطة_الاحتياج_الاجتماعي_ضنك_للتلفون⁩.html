@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>خريطة الاحتياج الاجتماعي الرقمية — ولاية ضنك</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:Tahoma,Arial,sans-serif;background:#f3f7f5;color:#17352e}
+button,input,select{font:inherit}.app{min-height:100vh;display:flex}.sidebar{width:245px;background:#064f3f;color:#fff;padding:24px 14px;position:fixed;right:0;top:0;bottom:0}.brand{text-align:center;padding:10px 0 25px;border-bottom:1px solid #ffffff2b}.logo{font-size:38px}.brand h2{font-size:17px;margin:8px 0}.nav{margin-top:20px}.nav button{width:100%;border:0;background:transparent;color:#fff;text-align:right;padding:13px 15px;border-radius:10px;margin:3px 0;cursor:pointer}.nav button.active,.nav button:hover{background:#0b6955}.main{margin-right:245px;width:calc(100% - 245px);padding:22px}.top{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}.top h1{margin:0;font-size:25px}.user{background:#fff;padding:10px 15px;border-radius:12px;box-shadow:0 2px 12px #174c3a12}.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.card{background:#fff;border-radius:14px;padding:17px;box-shadow:0 3px 15px #164a3810}.label{font-size:13px;color:#63756f}.num{font-size:26px;font-weight:bold;margin-top:8px}.high{border-right:5px solid #ef5b52}.med{border-right:5px solid #f2aa35}.low{border-right:5px solid #5baa65}.layout{display:grid;grid-template-columns:280px 1fr;gap:15px;margin-top:15px}.filters h3{margin-top:0}.filters label{display:block;font-size:12px;margin:13px 0 5px}.filters select{width:100%;padding:10px;border:1px solid #dbe6e1;border-radius:9px;background:#fff}.btn{width:100%;padding:11px;border:0;border-radius:9px;background:#075640;color:#fff;cursor:pointer;margin-top:14px}.btn.secondary{background:#edf4f1;color:#075640}.map{min-height:455px;background:linear-gradient(#d9eee9,#f7efe0);border-radius:15px;position:relative;overflow:hidden;border:1px solid #d9e5df}.map:before{content:"";position:absolute;inset:0;background-image:linear-gradient(35deg,transparent 48%,#ffffffaa 49%,transparent 50%),linear-gradient(120deg,transparent 48%,#ffffffaa 49%,transparent 50%);background-size:110px 90px}.region{position:absolute;padding:25px 35px;clip-path:polygon(12% 10%,85% 0,100% 55%,80% 100%,15% 90%,0 40%);font-weight:bold;cursor:pointer;transition:.2s}.region:hover{transform:scale(1.04)}.r1{right:9%;top:12%;background:#ef6b60}.r2{right:34%;top:23%;background:#f4b14a}.r3{right:57%;top:15%;background:#73b66c}.r4{right:21%;top:54%;background:#ed6b60}.r5{right:47%;top:60%;background:#75b86c}.r6{right:70%;top:48%;background:#f4b14a}.legend{position:absolute;left:15px;top:15px;background:#fff;padding:12px;border-radius:10px;box-shadow:0 2px 10px #0001}.legend div{margin:5px}.dot{display:inline-block;width:11px;height:11px;border-radius:50%;margin-left:5px}.popup{position:absolute;right:34%;bottom:24px;background:#fff;padding:15px;border-radius:12px;box-shadow:0 5px 25px #0002;width:190px}.popup h3{margin:0 0 7px}.popup small{display:block;margin:4px 0}.popup .btn{margin-top:8px}.page{display:none}.page.active{display:block}.table{width:100%;border-collapse:collapse;background:#fff;border-radius:12px;overflow:hidden}.table th,.table td{padding:12px;border-bottom:1px solid #edf1ef;text-align:right;font-size:13px}.status{color:#15804f}.alert{padding:14px;background:#fff;border-radius:12px;margin:10px 0;border-right:5px solid #ef6b60}.login{position:fixed;inset:0;background:#edf5f1;display:flex;align-items:center;justify-content:center;z-index:10}.loginbox{width:380px;background:#fff;padding:30px;border-radius:18px;box-shadow:0 10px 40px #064f3f20;text-align:center}.loginbox input{display:block;width:100%;padding:12px;margin:10px 0;border:1px solid #dce7e2;border-radius:9px}.loginbox .btn{margin-top:8px}.muted{color:#6d7e78;font-size:13px}.bar{height:12px;background:#e8efec;border-radius:20px;overflow:hidden}.fill{height:100%;background:#0b6955}.reportbox{display:grid;grid-template-columns:1fr 1fr;gap:15px}.hide{display:none}@media(max-width:850px){.sidebar{width:72px}.brand h2,.brand div:not(.logo),.nav span{display:none}.main{margin-right:72px;width:calc(100% - 72px)}.cards{grid-template-columns:1fr 1fr}.layout{grid-template-columns:1fr}.reportbox{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div id="login" class="login">
+  <div class="loginbox">
+    <div class="logo">🌿</div><h2>خريطة الاحتياج الاجتماعي</h2>
+    <p class="muted">نظام رقمي لدعم اتخاذ القرار في الخدمات الاجتماعية</p>
+    <input id="username" placeholder="اسم المستخدم">
+    <input id="password" type="password" placeholder="كلمة المرور">
+    <button class="btn" onclick="login()">دخول إلى النظام</button>
+    <p class="muted">نسخة تجريبية — يمكنك الدخول بأي بيانات</p>
+  </div>
+</div>
+
+<div class="app">
+<aside class="sidebar">
+  <div class="brand"><div class="logo">🌿</div><h2>دائرة التنمية الاجتماعية</h2><div>خريطة الاحتياج الاجتماعية الرقمية — ولاية ضنك</div></div>
+  <div class="nav">
+    <button class="active" onclick="showPage('dashboard',this)">🏠 <span>الرئيسية</span></button>
+    <button onclick="showPage('mapPage',this)">🗺️ <span>الخريطة</span></button>
+    <button onclick="showPage('cases',this)">👥 <span>الحالات</span></button>
+    <button onclick="showPage('needs',this)">🌱 <span>الاحتياجات</span></button>
+    <button onclick="showPage('reports',this)">📊 <span>التقارير</span></button>
+    <button onclick="showPage('alerts',this)">🔔 <span>التنبيهات</span></button>
+  </div>
+</aside>
+
+<main class="main">
+<header class="top"><h1 id="title">خريطة الاحتياج الاجتماعي الرقمية — ولاية ضنك</h1><div class="user">👤 أحمد العوفي — مدير النظام</div></header>
+
+<section id="dashboard" class="page active">
+<div class="cards">
+ <div class="card"><div class="label">مناطق ولاية ضنك</div><div class="num">12</div></div>
+ <div class="card high"><div class="label">احتياج مرتفع</div><div class="num">128</div></div>
+ <div class="card med"><div class="label">احتياج متوسط</div><div class="num">214</div></div>
+ <div class="card low"><div class="label">إجمالي الحالات</div><div class="num">486</div></div>
+</div>
+<div class="layout">
+ <div class="card filters"><h3>فلترة الخريطة</h3><label>المحافظة</label><select><option>الظاهرة</option></select><label>الولاية</label><select><option>ضنك</option></select><label>نوع الاحتياج</label><select><option>جميع الأنواع</option><option>أسرة محتاجة</option><option>أيتام</option><option>كبار السن</option></select><button class="btn" onclick="filterMsg()">تطبيق الفلتر</button><button class="btn secondary" onclick="location.reload()">إعادة تعيين</button></div>
+ <div class="map" id="mainMap">
+   <div class="legend"><b>مستوى الاحتياج في ضنك</b>
+   <div><i class="dot" style="background:#ef6b60"></i>مرتفع</div>
+   <div><i class="dot" style="background:#f4b14a"></i>متوسط</div>
+   <div><i class="dot" style="background:#73b66c"></i>منخفض</div></div>
+   <div class="region r1" onclick="selectRegion('مركز ضنك','مرتفع',128)">مركز ضنك</div>
+   <div class="region r2" onclick="selectRegion('القرى الشمالية','متوسط',96)">القرى الشمالية</div>
+   <div class="region r3" onclick="selectRegion('القرى الغربية','منخفض',54)">القرى الغربية</div>
+   <div class="region r4" onclick="selectRegion('القرى الشرقية','مرتفع',87)">القرى الشرقية</div>
+   <div class="region r5" onclick="selectRegion('القرى الجنوبية','منخفض',43)">القرى الجنوبية</div>
+   <div class="region r6" onclick="selectRegion('المناطق المحيطة','متوسط',78)">المناطق المحيطة</div>
+   <div class="popup" id="popup"><h3>مركز ضنك 📍</h3><b style="color:#e9574e">احتياج مرتفع</b>
+   <small>إجمالي الحالات: 128</small><small>الأسر المحتاجة: 81</small><small>الأيتام: 19</small>
+   <button class="btn" onclick="showPage('cases',document.querySelectorAll('.nav button')[2])">عرض الحالات</button></div>
+ </div>
+</div>
+</section>
+
+<section id="mapPage" class="page"><div class="card"><h2>خريطة ولاية ضنك</h2>
+<p class="muted">خريطة تفاعلية خاصة بولاية ضنك. اضغطي على أي منطقة لعرض مستوى الاحتياج والحالات المسجلة.</p>
+<div class="map" style="min-height:560px">
+<div class="legend"><b>مستوى الاحتياج</b><div>🔴 مرتفع</div><div>🟠 متوسط</div><div>🟢 منخفض</div></div>
+<div class="region r1" onclick="selectRegion('مركز ضنك','مرتفع',128)">مركز ضنك</div>
+<div class="region r2" onclick="selectRegion('القرى الشمالية','متوسط',96)">القرى الشمالية</div>
+<div class="region r3" onclick="selectRegion('القرى الغربية','منخفض',54)">القرى الغربية</div>
+<div class="region r4" onclick="selectRegion('القرى الشرقية','مرتفع',87)">القرى الشرقية</div>
+<div class="region r5" onclick="selectRegion('القرى الجنوبية','منخفض',43)">القرى الجنوبية</div>
+<div class="region r6" onclick="selectRegion('المناطق المحيطة','متوسط',78)">المناطق المحيطة</div>
+</div></div></section>
+
+<section id="cases" class="page"><div class="card"><h2>إدارة الحالات — ولاية ضنك</h2>
+<table class="table"><thead><tr><th>رقم الحالة</th><th>اسم الحالة</th><th>المنطقة</th><th>نوع الاحتياج</th><th>الحالة</th></tr></thead>
+<tbody>
+<tr><td>DH-2026-0128</td><td>فاطمة سالم</td><td>مركز ضنك</td><td>أسرة محتاجة</td><td class="status">نشطة</td></tr>
+<tr><td>DH-2026-0127</td><td>سعيد علي</td><td>القرى الشرقية</td><td>إعانة</td><td class="status">نشطة</td></tr>
+<tr><td>DH-2026-0126</td><td>مريم خميس</td><td>القرى الشمالية</td><td>يتيم</td><td class="status">نشطة</td></tr>
+<tr><td>DH-2026-0125</td><td>أحمد محمد</td><td>القرى الغربية</td><td>أسرة محتاجة</td><td class="status">قيد الدراسة</td></tr>
+</tbody></table></div></section>
+
+<section id="needs" class="page"><div class="cards"><div class="card high"><h3>الأسر المحتاجة</h3><div class="num">214</div><div class="bar"><div class="fill" style="width:78%"></div></div></div><div class="card med"><h3>الأيتام</h3><div class="num">67</div><div class="bar"><div class="fill" style="width:45%"></div></div></div><div class="card low"><h3>كبار السن</h3><div class="num">43</div><div class="bar"><div class="fill" style="width:36%"></div></div></div></div></section>
+
+<section id="reports" class="page"><div class="reportbox"><div class="card"><h2>توزيع الحالات حسب الولاية</h2><p>مركز ضنك <b>128</b></p><p>القرى الشمالية <b>96</b></p><p>القرى الشرقية <b>87</b></p><p>القرى الغربية <b>54</b></p></div><div class="card"><h2>أولوية التدخل</h2><p>🔴 عالية — 128 حالة</p><p>🟠 متوسطة — 214 حالة</p><p>🟢 منخفضة — 144 حالة</p><button class="btn" onclick="alert('تم تجهيز التقرير للعرض والطباعة في النسخة التجريبية.')">إنشاء تقرير</button></div></div></section>
+
+<section id="alerts" class="page"><div class="card"><h2>التنبيهات</h2><div class="alert">🚨 <b>ارتفاع مستوى الاحتياج في ولاية ضنك</b><br><small>يرجى اتخاذ الإجراء اللازم.</small></div><div class="alert" style="border-right-color:#f2aa35">⚠️ <b>زيادة عدد الحالات الجديدة في ولاية ضنك</b><br><small>عدد الحالات الجديدة: 32 حالة.</small></div><div class="alert" style="border-right-color:#4b8fc0">ℹ️ <b>تم تحديث بيانات 15 حالة في ولاية ضنك</b></div></div></section>
+</main></div>
+
+<script>
+function login(){
+  const u=document.getElementById('username').value.trim();
+  const p=document.getElementById('password').value.trim();
+  if(u==='admin' && p==='1234'){
+    document.getElementById('login').style.display='none';
+  }else{
+    alert('بيانات الدخول غير صحيحة. اسم المستخدم: admin — كلمة المرور: 1234');
+  }
+}
+function showPage(id,btn){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.getElementById(id).classList.add('active');document.querySelectorAll('.nav button').forEach(b=>b.classList.remove('active'));if(btn)btn.classList.add('active');let t={dashboard:'خريطة الاحتياج الاجتماعي الرقمية — ولاية ضنك',mapPage:'الخريطة التفاعلية',cases:'الحالات الاجتماعية',needs:'الاحتياجات الاجتماعية',reports:'التقارير والتحليلات',alerts:'التنبيهات'};document.getElementById('title').textContent=t[id]}
+function selectRegion(name,level,total){
+  const popup=document.getElementById('popup');
+  popup.innerHTML='<h3>منطقة '+name+' 📍</h3><b>'+level+'</b><small>إجمالي الحالات: '+total+'</small><small>الأسر المحتاجة: '+Math.round(total*.63)+'</small><small>الأيتام: '+Math.round(total*.15)+'</small><button class="btn" onclick="showPage(\'cases\',document.querySelectorAll(\'.nav button\')[2])">عرض الحالات</button>';
+})}
+function filterMsg(){alert('تم تطبيق الفلاتر على البيانات التجريبية.')}
+</script>
+</body>
+</html>

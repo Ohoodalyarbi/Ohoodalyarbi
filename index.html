@@ -93,7 +93,12 @@ button,input,select{font:inherit}.app{min-height:100vh;display:flex}.sidebar{wid
 </main></div>
 
 <script>
-function login(){document.getElementById('login').style.display='none'}
+function login(){
+  const loginBox = document.getElementById('login');
+  if(loginBox){
+    loginBox.style.display = 'none';
+  }
+}
 function showPage(id,btn){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.getElementById(id).classList.add('active');document.querySelectorAll('.nav button').forEach(b=>b.classList.remove('active'));if(btn)btn.classList.add('active');let t={dashboard:'خريطة الاحتياج الاجتماعي الرقمية — ولاية ضنك',mapPage:'الخريطة التفاعلية',cases:'الحالات الاجتماعية',needs:'الاحتياجات الاجتماعية',reports:'التقارير والتحليلات',alerts:'التنبيهات'};document.getElementById('title').textContent=t[id]}
 function selectRegion(name,level,total){document.getElementById('popup').innerHTML='<h3>ولاية '+name+' 📍</h3><b>احتياج '+level+'</b><small>إجمالي الحالات: '+total+'</small><small>الأسر المحتاجة: '+Math.round(total*.63)+'</small><small>الأيتام: '+Math.round(total*.15)+'</small><button class="btn" onclick="showPage(\\'cases\\',document.querySelectorAll(\\'.nav button\\')[2])">عرض التفاصيل</button>';document.getElementById('popup').scrollIntoView({behavior:'smooth',block:'center'})}
 function filterMsg(){alert('تم تطبيق الفلاتر على البيانات التجريبية.')}
